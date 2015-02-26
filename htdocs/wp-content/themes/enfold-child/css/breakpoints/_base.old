@@ -1,0 +1,148 @@
+/* header styles */
+
+	/* secondary nav (sub menu) */
+	#header_meta {
+		z-index: 1; /* pushes the top nav bar behind the logo, this only works on z-index 1 or lower? */
+	}
+
+	#top {
+		.av_header_transparency {
+			#header_main {
+				// gradient behind navigation
+			}
+
+			#header_meta {
+				background: $do-black;
+				@extend %noborder;
+			}
+		}
+
+		.social_bookmarks {
+			li {
+				@extend %noborder;	
+			}
+		}
+	}
+
+	.sub_menu li {
+		@extend %noborder;	
+	}
+
+	.responsive #top {
+		#header_meta {
+			.social_bookmarks {
+				li {
+					&:last-child {
+						@extend %noborder;
+					}
+				}
+			}
+		}
+	}
+
+	.header_color {
+		.sub_menu>ul>li>a {
+			color: $do-brown; /* override the different shades of the main colour enfold generates, clever but annoying */
+		}
+	}
+
+	.container_wrap,
+	#header_meta,
+	#header_main {
+		@extend %noborder;
+	}
+
+	.html_header_top.html_bottom_nav_header {
+		.main_menu {
+			ul:first-child {
+				&>li {
+					a { 
+						@extend %noborder; 
+					}
+
+					&:first-child {
+						a { 
+							@extend %noborder; 
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.html_bottom_nav_header.html_logo_center {
+		#top {
+			#menu-item-search>a {
+				@extend %noborder;		
+			}
+		}
+	}
+
+	/* logo and main nav styles */
+	.av-main-nav {
+		li {
+			a {
+				@extend %cinzel-normal;
+				font-size: 16px !important;
+				color: white !important;
+			}
+		}
+	}
+
+	div .logo {
+		margin-top: -12px; /* overlapping the logo with the top bar */
+		z-index: 10;
+	}
+
+
+/* homepage slideshow styles */
+#top {
+
+	.av-control-minimal {
+		.avia-slideshow-arrows { 
+			a {
+				&:before {
+					@extend %noborder;
+					background: rgba(0, 0, 0, 0.7);
+				}
+
+				&[href="#prev"] {
+					border-radius: 0 3px 3px 0;
+				}
+
+				&[href="#next"] {
+					border-radius: 3px 0 0 3px;	
+				}
+			}
+		}
+	}
+
+	
+	
+
+	.avia-slideshow-arrows {
+		a {
+			margin: -30px 0 0;
+			width: 30px;
+
+		}
+	}
+}
+
+/* footer styles */
+#footer {
+	.widgettitle {
+		@extend %cinzel-normal;
+		color: $do-brown; /* again overriding the different shades of the main colour enfold generates */
+	}
+}
+
+#top {
+	#footer {
+		.widget {
+			ul {
+				padding-left: 6px;
+			}
+		}
+	}
+}

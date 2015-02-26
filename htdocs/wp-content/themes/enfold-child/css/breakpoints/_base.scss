@@ -1,0 +1,270 @@
+/**********************************************
+
+				HEADER STYLES
+
+**********************************************/
+
+/* Secondary Menu */
+#header_meta {
+	@extend %noborder;
+	z-index: 1; /* pushes the top nav bar behind the logo, this only works on z-index 1 or lower? */
+}
+
+#top {
+	.social_bookmarks {
+		li {
+			@extend %noborder;	
+		}
+	}
+
+	.header_color {
+		.sub_menu>ul>li>a {
+			color: $do-brown; /* override the different shades of the main colour enfold generates, clever but annoying */
+		}
+	}
+}
+
+.sub_menu li {
+	@extend %noborder;	
+}
+
+#top {
+	.av_header_transparency {
+		#header_meta {
+			background: $do-black;
+			@extend %noborder;
+		}
+
+		#header_main {
+			
+		}
+
+		.header_bg {
+			
+		} 
+	}
+}
+
+/* Main Menu */
+div .logo {
+	margin-top: -12px; /* overlapping the logo with the top bar */
+	z-index: 10;
+}
+
+#header_main,
+.container_wrap {
+	@extend %noborder;
+}
+
+.av-main-nav {
+	li {
+		a {
+			@extend %cinzel-normal;
+			font-size: 16px !important;
+			color: $do-white !important;
+		}
+	}
+}
+
+.html_header_top.html_bottom_nav_header {
+	.main_menu {
+		ul:first-child {
+			&>li {
+				a { 
+					@extend %noborder; 
+				}
+
+				&:first-child {
+					a { 
+						@extend %noborder; 
+					}
+				}
+			}
+		}
+	}
+}
+
+.html_bottom_nav_header.html_logo_center {
+	#top {
+		#menu-item-search>a {
+			@extend %noborder;		
+		}
+	}
+}
+
+/**********************************************
+
+		    MEDIA ELEMENTS STYLES
+
+**********************************************/
+
+/* Fullscreen Slider */
+#top {
+	.avia-slideshow-arrows {
+		a {
+			margin: -30px 0 0;
+			width: 30px;
+
+			&:before {
+				background: rgba(0, 0, 0, 0.5);
+			}
+
+			&[href="#prev"] {
+				border-radius: 0 3px 3px 0;
+			}
+
+			&[href="#next"] {
+				border-radius: 3px 0 0 3px;
+			}
+		}
+	}
+
+	.av-control-minimal {
+		.avia-slideshow-arrows { 
+			a {
+				&:before {
+					background: none;
+					@extend %noborder; // borders get cut off by the border-radius on the parent element, replace it with box-shadow instead
+				}
+
+				box-shadow: 0 0 0 2px $do-white; 
+			}
+		}
+	}
+}
+
+/* Image */
+#homepage_feature_blocks {
+	background: url('../images/texture.png');
+
+	// removed this because it didnt look good on mobile resolutions
+	/* .av-image-caption-overlay-center {
+		vertical-align: top;
+		padding: 4%;
+	} */
+
+	.av-image-caption-overlay {
+		height: 50%;
+		bottom: 0;
+		background: $do-image-overlay;
+
+		h1, h2, h3, h4, h5, h6 {
+			@extend %cinzel-normal;
+			font-size: 24px;
+			color: $do-brown;
+		}
+
+		div.img-caption-btn {			
+			display: inline-block;
+			padding: 10px 22px;
+			border: 1px solid $do-brown;
+		}
+	}
+}
+
+/**********************************************
+
+			CONTENT ELEMENTS STYLES
+
+**********************************************/
+
+/* Special Heading */
+.av-special-heading {
+	h1, h2, h3, h4, h5, h6 {
+		@extend %cinzel-normal;
+	}
+
+	.av-subheading.av-subheading_above,
+	.av-subheading.av-subheading_below {
+		@extend %cinzel-normal;	
+	}
+}
+
+body {
+	.av-special-heading.modern-quote,
+	.av-special-heading.classic-quote {
+		h1, h2, h3, h4, h5, h6 {
+			display: inline-block;
+			border-bottom: 2px solid;
+		}
+	}
+}
+
+/**********************************************
+
+			PLUGIN ADDITIONS STYLES
+
+**********************************************/
+
+/* Product Slider (Woocommerce) */
+.inner_product {
+	@extend %noborder;
+}
+
+.avia_cart_buttons {
+	@extend %noborder;
+	opacity: 1;
+}
+
+#top {
+	.inner_product_header {		
+		/* padding: 0; */ // really want to avoid messing with the default grid of things
+
+		.avia-arrow {
+			@extend %hide;
+		}
+
+		@extend %noborder;
+	}
+
+	.avia_cart_buttons {
+		.button {
+			&> span {
+				@extend %hide;
+			}
+		}
+	}
+
+	.price,
+	.price span,
+	del,
+	ins {
+		font-size: 22px;
+		padding-left: 6px;
+	}
+}
+
+.products {
+	.product {
+		h3, h4, h5, h6 {
+			background: $do-black;
+			color: $do-white;
+			font-size: 14px;
+			padding: 11px 12px;
+			margin-bottom: 8px;
+		}
+	}
+}
+
+.button-mini-delimiter {
+	@extend %hide;
+}
+
+/**********************************************
+
+	    	 GRID (Experimental)
+
+These are changes to the Enfold grid which I do
+not recommend, but it gives a more accurate
+representation of the designs for the Darling
+Olives website
+
+**********************************************/
+
+/* Image */
+/* #homepage_feature_blocks {
+	div .av_one_third {
+		margin-left: 1.78%;
+		width: 31.553398%;
+	}
+} */

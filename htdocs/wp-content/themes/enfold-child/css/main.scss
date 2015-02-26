@@ -1,0 +1,56 @@
+// Partials
+@import "partials/variables";
+@import "partials/typography";
+@import "partials/mixins";
+
+// Breakpoints
+@import "breakpoints/base";
+
+@media only screen and (min-width: 481px) {
+    @import "breakpoints/481up";
+}
+
+@media only screen and (min-width: 768px) {
+    @import "breakpoints/768up";
+}
+
+@media only screen and (min-width: 768px) and (max-width: 989px) {
+	//copying this behaviour from enfold/css/grid.css and applying it to one_third sections. We need this inbetween breakpoint so the #homepage_feature_blocks dont get so small that it can no longer hold the copy
+	.responsive #homepage_feature_blocks .av_one_third.first.el_before_av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_third + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_half.first + .av_one_third.el_before_av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_half.first + .av_one_third.el_before_av_one_third + .av_one_third,
+  	.responsive .avia-content-slider-inner .av_one_third {
+    	margin-left: 4%;
+    	width: 48%;
+  	}
+  	.responsive #homepage_feature_blocks .av_one_third.first.el_before_av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_half.first + .av_one_third.el_before_av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_half,
+  	.responsive .avia-content-slider-inner .av_one_third.first {
+    	margin-left: 0%;
+    	clear: both;
+  	}
+  	.responsive #homepage_feature_blocks .av_one_half.first.el_before_av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_half {
+    	width: 100%;
+  	}
+  	.responsive #homepage_feature_blocks .av_one_half.first + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_half.first + .av_one_third + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_third + .av_one_third,
+  	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third + .av_one_half {
+    	margin-top: 30px;
+  	}
+}
+
+@media only screen and (min-width: 1030px) {
+    @import "breakpoints/1030up";
+}
+
+@media only screen and (min-width: 1240px) {
+    @import "breakpoints/1240up";
+}

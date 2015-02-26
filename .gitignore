@@ -1,0 +1,13 @@
+/htdocs/.htaccess
+/htdocs/wp-config-local.php
+/htdocs/wp-content/upgrade/*
+/htdocs/sitemap.xml
+/htdocs/sitemap.xml.gz
+readme.html
+license.txt
+.log
+.DS_Store
+/nbproject/private/
+/project/
+/resources/
+/htdocs/wp-snapshots/
