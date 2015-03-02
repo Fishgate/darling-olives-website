@@ -46,6 +46,16 @@
 }
 
 /* Main Menu */
+.avia-search-tooltip,
+.avia-arrow {
+	@extend %noborder;
+}
+
+.cart_dropdown,
+.avia-search-tooltip {
+	@extend %noradius;
+}
+
 div .logo {
 	margin-top: -12px; /* overlapping the logo with the top bar */
 	z-index: 10;
@@ -274,6 +284,10 @@ body {
 			FOOTER/WIDGET STYLES
 
 **********************************************/
+
+#scroll-top-link {
+	@extend %noradius;
+}
 
 .widgettitle {
 	@extend %cinzel-normal;
