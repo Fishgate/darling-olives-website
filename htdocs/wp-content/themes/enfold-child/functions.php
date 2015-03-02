@@ -1,10 +1,7 @@
 <?php
 
 /**
- * enqueue scripts and styles for the frontend of the child theme
- *
- * git deployment test 1
- * 
+ * enqueue scripts and styles for the frontend of the child theme* 
  */
 function fishgatefold_enqueue(){
     // register font awesome styles (http://fortawesome.github.io/Font-Awesome/)

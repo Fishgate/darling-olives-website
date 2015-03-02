@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: WooCommerce Table Rate Shipping
-Plugin URI: http://woothemes.com/woocommerce/
+Plugin URI: http://www.woothemes.com/products/table-rate-shipping-2/
 Description: Table rate shipping lets you define rates depending on location vs shipping class, price, weight, or item count.
-Version: 2.7.1
+Version: 2.8.2
 Author: Mike Jolley
 Author URI: http://mikejolley.com
-Requires at least: 3.3
-Tested up to: 4.0
+Requires at least: 4.0
+Tested up to: 4.1
 
-	Copyright: 2009-2011 WooThemes.
+	Copyright: 2009-2015 WooThemes.
 	License: GNU General Public License v3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -17,8 +17,9 @@ Tested up to: 4.0
 /**
  * Required functions
  */
-if ( ! function_exists( 'woothemes_queue_update' ) )
+if ( ! function_exists( 'woothemes_queue_update' ) ) {
 	require_once( 'woo-includes/woo-functions.php' );
+}
 
 /**
  * Plugin updates
@@ -30,12 +31,16 @@ woothemes_queue_update( plugin_basename( __FILE__ ), '3034ed8aff427b0f635fe4c86b
  */
 if ( is_woocommerce_active() ) {
 
-	define( 'TABLE_RATE_SHIPPING_VERSION', '2.7.1' );
+	define( 'TABLE_RATE_SHIPPING_VERSION', '2.8.2' );
 
 	if ( defined( 'WP_DEBUG' ) && 'true' == WP_DEBUG && ( ! defined( 'WP_DEBUG_DISPLAY' ) || 'true' == WP_DEBUG_DISPLAY ) ) {
 		define( 'TABLE_RATE_SHIPPING_DEBUG', true );
 	} else {
 		define( 'TABLE_RATE_SHIPPING_DEBUG', false );
+	}
+
+	if ( ! defined( 'SHIPPING_ZONES_TEXTDOMAIN' ) ) {
+		define( 'SHIPPING_ZONES_TEXTDOMAIN', 'woocommerce-table-rate-shipping' );
 	}
 
 	/**
@@ -58,6 +63,26 @@ if ( is_woocommerce_active() ) {
 	}
 
 	/**
+	 * Show row meta on the plugin screen.
+	 *
+	 * @param	mixed $links Plugin Row Meta
+	 * @param	mixed $file  Plugin Base file
+	 * @return	array
+	 */
+	function table_rate_shipping_plugin_row_meta( $links, $file ) {
+		if ( $file == plugin_basename( __FILE__ ) ) {
+			$row_meta = array(
+				'docs'    =>	'<a href="' . esc_url( apply_filters( 'woocommerce_table_rate_shipping_docs_url', 'http://docs.woothemes.com/document/table-rate-shipping-v2/' ) ) . '" title="' . esc_attr( __( 'View Documentation', 'woocommerce-table-rate-shipping' ) ) . '">' . __( 'Docs', 'woocommerce-table-rate-shipping' ) . '</a>',
+				'support' =>	'<a href="' . esc_url( apply_filters( 'woocommerce_table_rate_support_url', 'http://support.woothemes.com/' ) ) . '" title="' . esc_attr( __( 'Visit Premium Customer Support Forum', 'woocommerce-table-rate-shipping' ) ) . '">' . __( 'Premium Support', 'woocommerce-table-rate-shipping' ) . '</a>',
+			);
+			return array_merge( $links, $row_meta );
+		}
+		return (array) $links;
+	}
+
+	add_filter( 'plugin_row_meta', 'table_rate_shipping_plugin_row_meta', 10, 2 );
+
+	/**
 	 * AJAX Handlers
 	 */
 	if ( defined( 'DOING_AJAX' ) ) {
@@ -68,20 +93,22 @@ if ( is_woocommerce_active() ) {
 	 * Zones
 	 */
 	if ( ! class_exists( 'WC_Shipping_zone' ) ) {
-		include_once( 'shipping-zones/shipping-zones-init.php' );
+		include_once( 'shipping-zones/class-wc-shipping-zones.php' );
 	}
 
 	/**
 	 * Install check (for updates)
 	 */
-	if ( get_option( 'table_rate_shipping_version' ) < TABLE_RATE_SHIPPING_VERSION )
+	if ( get_option( 'table_rate_shipping_version' ) < TABLE_RATE_SHIPPING_VERSION ) {
 		install_table_rate_shipping();
+	}
 
 	/**
 	 * Welcome notices
 	 */
-	if ( get_option( 'hide_table_rate_welcome_notice' ) == '' )
+	if ( get_option( 'hide_table_rate_welcome_notice' ) == '' ) {
 		add_action( 'admin_notices', 'woocommerce_table_rate_welcome_notice' );
+	}
 
 	function woocommerce_table_rate_welcome_notice() {
 		global $woocommerce;
@@ -128,12 +155,11 @@ if ( is_woocommerce_active() ) {
 		class WC_Shipping_Table_Rate extends WC_Shipping_Method {
 
 			var $available_rates;	// Available table rates titles and costs
-
 			var $instance_id;		// ID for the instance/shipping method. id-number
 			var $id;				// Method ID - should be unique to the shipping method
 			var $number;			// Instance ID number
 
-			function __construct( $instance = false ) {
+			public function __construct( $instance = false ) {
 				global $woocommerce, $wpdb;
 
 				$this->id				= 'table_rate';
@@ -182,7 +208,7 @@ if ( is_woocommerce_active() ) {
 			/**
 		     * Initialise Instance Settings
 		     */
-		    function init_instance_settings() {
+		    public function init_instance_settings() {
 
 		    	// Load instance settings (if applicable)
 		    	if ( ! empty( $this->instance_fields ) && ! empty( $this->instance_id ) ) {
@@ -217,7 +243,7 @@ if ( is_woocommerce_active() ) {
 			/**
 		     * Initialise Gateway Settings Form Fields
 		     */
-		    function init_form_fields() {
+		    public function init_form_fields() {
 		    	$this->form_fields    = array(); // No global options for table rates
 		    	$this->instance_fields = array(
 					'enabled' => array(
@@ -371,7 +397,7 @@ if ( is_woocommerce_active() ) {
 		     * @param mixed $package
 		     * @return void
 		     */
-		    function is_available( $package ) {
+		    public function is_available( $package ) {
 		    	$available = true;
 
 		    	if ( $this->enabled == "no" )
@@ -390,7 +416,7 @@ if ( is_woocommerce_active() ) {
 			 * @access public
 			 * @return void
 			 */
-			function count_items_in_class( $package, $class_id ) {
+			public function count_items_in_class( $package, $class_id ) {
 
 				$count = 0;
 
@@ -409,7 +435,7 @@ if ( is_woocommerce_active() ) {
 		     * @access public
 		     * @return void
 		     */
-		    function get_cart_shipping_class_id( $package ) {
+		    public function get_cart_shipping_class_id( $package ) {
 
 				// Find shipping class for cart
 				$found_shipping_classes = array();
@@ -458,7 +484,7 @@ if ( is_woocommerce_active() ) {
 		     * @param mixed $args
 		     * @return void
 		     */
-		    function query_rates( $args ) {
+		    public function query_rates( $args ) {
 			    global $wpdb;
 
 				$defaults = array(
@@ -558,7 +584,7 @@ if ( is_woocommerce_active() ) {
 		     * @access public
 		     * @return void
 		     */
-		    function get_rates( $package ) {
+		    public function get_rates( $package ) {
 		    	global $woocommerce, $wpdb;
 
 		    	if ( $this->enabled == "no" || ! $this->instance_id )
@@ -888,13 +914,14 @@ if ( is_woocommerce_active() ) {
 
 						if ( $rate->rate_abort ) {
 							if ( ! empty( $rate->rate_abort_reason ) ) {
-										if ( function_exists( 'wc_add_notice' ) ) {
-											wc_add_notice( $rate->rate_abort_reason, 'notice' );
-										} else {
-											$woocommerce->add_message( $rate->rate_abort_reason );
-										}
-									}
-							continue;
+								if ( function_exists( 'wc_add_notice' ) ) {
+									wc_add_notice( $rate->rate_abort_reason, 'notice' );
+								} else {
+									$woocommerce->add_message( $rate->rate_abort_reason );
+								}
+							}
+							$rates = array(); // Clear rates
+							break;
 						}
 
 						if ( $rate->rate_priority )
@@ -922,8 +949,9 @@ if ( is_woocommerce_active() ) {
 							'cost' 		=> $cost
 						);
 
-						if ( $rate->rate_priority )
+						if ( $rate->rate_priority ) {
 							break;
+						}
 					}
 
 				}
@@ -945,7 +973,7 @@ if ( is_woocommerce_active() ) {
 		     * @param mixed $package
 		     * @return void
 		     */
-		    function calculate_shipping( $package ) {
+		    public function calculate_shipping( $package ) {
 		    	if ( $this->available_rates ) {
 		    		foreach ( $this->available_rates as $rate ) {
 		    			$this->add_rate( $rate );
@@ -960,7 +988,7 @@ if ( is_woocommerce_active() ) {
 		     * @param int $class (default: 0)
 		     * @return void
 		     */
-		    function get_shipping_rates( ) {
+		    public function get_shipping_rates( ) {
 		    	global $wpdb;
 
 		    	return $wpdb->get_results( "
@@ -978,7 +1006,7 @@ if ( is_woocommerce_active() ) {
 			 * @param mixed $_product
 			 * @return void
 			 */
-			function get_product_price( $_product, $qty = 1 ) {
+			public function get_product_price( $_product, $qty = 1 ) {
 				$row_base_price = $_product->get_price() * $qty;
 				$row_base_price = apply_filters( 'woocommerce_table_rate_package_row_base_price', $row_base_price, $_product, $qty );
 
@@ -995,7 +1023,6 @@ if ( is_woocommerce_active() ) {
 						$modded_taxes		= $this->tax->calc_tax( $row_base_price - array_sum( $base_taxes ), $tax_rates, false );
 						$row_base_price 	= ( $row_base_price - array_sum( $base_taxes ) ) + array_sum( $modded_taxes );
 					}
-
 				}
 
 				return $row_base_price;

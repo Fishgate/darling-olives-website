@@ -274,7 +274,7 @@ function wc_table_rate_admin_shipping_class_priorities( $shipping_method_id ) {
 	else :
 		$priority = get_option( 'woocommerce_table_rate_default_priority_' . $shipping_method_id ) != '' ? get_option( 'woocommerce_table_rate_default_priority_' . $shipping_method_id ) : 10;
 		?>
-		<table class="widefat" style="position:relative;">
+		<table class="widefat shippingrows" style="position:relative;">
 			<thead>
 				<tr>
 					<th><?php _e('Class', 'woocommerce-table-rate-shipping'); ?></th>

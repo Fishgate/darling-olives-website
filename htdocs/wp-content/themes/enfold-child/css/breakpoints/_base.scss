@@ -197,6 +197,10 @@ body {
 **********************************************/
 
 /* Product Slider (Woocommerce) */
+.thumbnail_container {
+	padding: 10px;
+}
+
 .inner_product {
 	@extend %noborder;
 }
@@ -208,7 +212,7 @@ body {
 
 #top {
 	.inner_product_header {		
-		/* padding: 0; */ // really want to avoid messing with the default grid of things
+		padding: 10px;
 
 		.avia-arrow {
 			@extend %hide;
@@ -219,6 +223,22 @@ body {
 
 	.avia_cart_buttons {
 		.button {
+			@extend %uppercase;
+			@include font(12px, 300, $do-true-black);
+			width: 48.5%;
+
+			&.add_to_cart_button {
+				background: $do-cream !important;
+				padding: 11px 0;
+			}
+
+			&.show_details_button {
+				background: none;
+				border: 1px solid black;
+				float: right;
+				padding: 10px 0;
+			}
+
 			&> span {
 				@extend %hide;
 			}
@@ -238,8 +258,7 @@ body {
 	.product {
 		h3, h4, h5, h6 {
 			background: $do-black;
-			color: $do-white;
-			font-size: 14px;
+			@include font(14px, 300, $do-white); //font-weight does not effect this element for some reason
 			padding: 11px 12px;
 			margin-bottom: 8px;
 		}
@@ -248,6 +267,28 @@ body {
 
 .button-mini-delimiter {
 	@extend %hide;
+}
+
+/**********************************************
+
+			FOOTER/WIDGET STYLES
+
+**********************************************/
+
+.widgettitle {
+	@extend %cinzel-normal;
+	color: $do-brown; /* again overriding the different shades of the main colour enfold generates */
+}
+
+
+#top {
+	#footer {
+		.widget {
+			ul {
+				padding-left: 6px;
+			}
+		}
+	}
 }
 
 /**********************************************
