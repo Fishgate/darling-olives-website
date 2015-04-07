@@ -154,7 +154,7 @@ div .logo {
 	} */
 
 	.av-image-caption-overlay {
-		height: 50%;
+		height: 80%;
 		bottom: 0;
 		background: $do-image-overlay;
 
@@ -174,7 +174,7 @@ div .logo {
 
 /**********************************************
 
-			CONTENT ELEMENTS STYLES
+		   CONTENT ELEMENTS STYLES
 
 **********************************************/
 
@@ -281,7 +281,7 @@ body {
 
 /**********************************************
 
-			FOOTER/WIDGET STYLES
+			 FOOTER/WIDGET STYLES
 
 **********************************************/
 
@@ -323,3 +323,141 @@ Olives website
 		width: 31.553398%;
 	}
 } */
+
+
+
+
+.ajax_search_response h4:first-child {
+	@extend %cinzel-normal;
+	text-transform: uppercase;
+	font-size: 17px;
+}
+
+.header_color .ajax_search_title {
+	color: white;
+	font-family: 'open sans';
+	font-weight: 300;
+	font-size: 14px;
+	text-transform: none;
+}
+
+.header_color .ajax_search_excerpt {
+	display: none;
+}
+
+#top div .ajax_search_entry {
+	border-color: rgba(239,207,155,0.4);
+	border-bottom-style: solid;	
+	font-weight: normal;
+	font-size: 13px !important;
+	color: $do-brown;
+}
+
+.header_color .avia-tt, .header_color .avia-tt .avia-arrow, .header_color .avia-tt .avia-arrow {
+	background-color: rgba(22,22,22,0.95);
+
+}
+
+#top #s {
+	color: $do-white;
+	font-size: 14px;
+}
+
+#top .products .product-category h3:before {
+	@extend %hide;
+}
+
+.image-overlay .image-overlay-inside {
+	@extend %hide;
+}
+
+.avia_transform a:hover .image-overlay {
+	opacity: 0.5 !important;
+}
+
+.image-overlay {
+	background: #161616;
+}
+
+
+h1, h2, h3, h4, h5, h6, #top .title_container .main-title, tr.pricing-row td, #top .portfolio-title, .callout .content-area, .avia-big-box .avia-innerbox, .av-special-font, .av-current-sort-title {
+@extend %cinzel-normal;
+	// same as special headings on home page
+}
+
+
+.template-shop .single-product-main-image .images a {
+	@extend %noborder;
+}
+
+
+#top .variations_form {
+	@extend %noborder;
+
+}
+
+#top .price, #top .price span, #top del, #top ins {
+	padding-left: 0;
+}
+
+table.variations {
+	// align this left with the price and tiitle
+	
+}
+
+
+/* cart dropdown */
+
+.cart_dropdown .dropdown_widget .widget_shopping_cart_content {
+	@extend %noborder;
+	background-color: rgba(22,22,22,0.95) !important;
+}
+
+/* #top div .dropdown_widget_cart {
+	display: block !important;
+	opacity: 1 !important;
+}
+ */
+
+div .dropdown_widget .cart_list li {
+	border-color: rgba(239,207,155,0.4);
+	border-bottom-style: solid;	
+}
+
+
+.dropdown_widget ul.cart_list li a img {
+	border-radius: 55px;
+}
+
+ #top .header_color a.remove {
+ 	background-color: $do-black !important;
+ }
+
+ .page-thumb {
+ 	@extend %hide;
+ }
+
+ #top .title_container .main-title {
+ 	font-size: 28px;
+ 	line-height: 30px;
+  	display: inline-block;
+  	border-bottom: 2px solid;
+  	letter-spacing: 1px;
+  	min-height: 33px;
+ }
+
+ .content, .sidebar {
+ 	padding-top: 15px;
+ }
+
+ #top .variations_form {
+ 	padding: 0;
+ }
+
+ div.product .product_title {
+	font-size: 28px;
+	line-height: 30px;
+	display: inline-block;
+	border-bottom: 2px solid;
+	letter-spacing: 1px;
+ }

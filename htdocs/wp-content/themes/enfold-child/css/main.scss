@@ -15,6 +15,14 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 989px) {
+  #homepage_feature_blocks {
+    
+    .av-image-caption-overlay {
+      height: 55%;
+    }
+  }
+
+
 	//copying this behaviour from enfold/css/grid.css and applying it to one_third sections. We need this inbetween breakpoint so the #homepage_feature_blocks dont get so small that it can no longer hold the copy
 	.responsive #homepage_feature_blocks .av_one_third.first.el_before_av_one_third,
   	.responsive #homepage_feature_blocks .av_one_third.first + .av_one_third,

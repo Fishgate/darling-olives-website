@@ -111,6 +111,8 @@ function wc_create_order( $args = array() ) {
 		update_post_meta( $order_id, '_customer_user', $args['customer_id'] );
 	}
 
+	update_post_meta( $order_id, '_order_version', WC_VERSION );
+
 	return new WC_Order( $order_id );
 }
 
@@ -470,7 +472,7 @@ function wc_get_image_size( $image_size ) {
 		$width  = isset( $image_size[0] ) ? $image_size[0] : '300';
 		$height = isset( $image_size[1] ) ? $image_size[1] : '300';
 		$crop   = isset( $image_size[2] ) ? $image_size[2] : 1;
-		
+
 		$size = array(
 			'width'  => $width,
 			'height' => $height,
