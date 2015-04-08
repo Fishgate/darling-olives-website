@@ -178,6 +178,22 @@ div .logo {
 
 **********************************************/
 
+/* Page titles */
+#top .title_container .main-title {
+	font-size: 28px;
+	line-height: 30px;
+	display: inline-block;
+	border-bottom: 2px solid;
+	letter-spacing: 1px;
+	min-height: 33px;
+	display: none;
+}
+
+/* Main content and Sidebar containers*/
+.content, .sidebar {
+	//padding-top: 0 !important;
+}
+
 /* Special Heading */
 .av-special-heading {
 	h1, h2, h3, h4, h5, h6 {
@@ -437,14 +453,6 @@ div .dropdown_widget .cart_list li {
  	@extend %hide;
  }
 
- #top .title_container .main-title {
- 	font-size: 28px;
- 	line-height: 30px;
-  	display: inline-block;
-  	border-bottom: 2px solid;
-  	letter-spacing: 1px;
-  	min-height: 33px;
- }
 
  .content, .sidebar {
  	padding-top: 15px;
