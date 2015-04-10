@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . $email_heading . " =\n\n";
 
-echo __( "Hello, a note has just been added to your order:", 'woocommerce' ) . "\n\n";
+echo  __( "Hi there,", 'woocommerce' ) . "\n\n";
+
+echo __( "A note has just been added to your order from Darling Olives:", 'woocommerce' ) . "\n\n";
 
 echo "----------\n\n";
 
@@ -49,5 +51,8 @@ do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text );
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+
+echo __("Kind regards,", 'woocommerce') . "\n\n";
+echo __("Darling Olives,", 'woocommerce') . "\n\n";
 
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );

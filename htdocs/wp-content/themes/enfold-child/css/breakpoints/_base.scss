@@ -154,7 +154,7 @@ div .logo {
 	} */
 
 	.av-image-caption-overlay {
-		height: 80%;
+		height: 50%;
 		bottom: 0;
 		background: $do-image-overlay;
 
@@ -315,7 +315,7 @@ body {
 	#footer {
 		.widget {
 			ul {
-				padding-left: 6px;
+				//padding-left: 6px;
 			}
 		}
 	}
@@ -371,7 +371,6 @@ Olives website
 
 .header_color .avia-tt, .header_color .avia-tt .avia-arrow, .header_color .avia-tt .avia-arrow {
 	background-color: rgba(22,22,22,0.95);
-
 }
 
 #top #s {
@@ -469,3 +468,8 @@ div .dropdown_widget .cart_list li {
 	border-bottom: 2px solid;
 	letter-spacing: 1px;
  }
+
+ /* .woocommerce-price-suffix {
+ 	font-size: 0.5em !important;
+ 	font-weight: normal;
+ } */

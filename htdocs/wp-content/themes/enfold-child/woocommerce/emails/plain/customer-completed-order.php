@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . $email_heading . " =\n\n";
 
-echo sprintf( __( "Hi there. Your recent order on %s has been completed. Your order details are shown below for your reference:", 'woocommerce' ), get_option( 'blogname' ) ) . "\n\n";
+echo __( "Hi there,", 'woocommerce' ) . "\n\n";
+
+echo __( "Your Darling Olives order has been shipped and is now complete. Your package will be delivered within the next 5-7 workdays.", 'woocommerce' ) . "\n\n";
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
@@ -41,5 +43,10 @@ do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text );
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+
+echo __( "Thank you again for your support and enjoy your purchase.", 'woocommerce' ) . "\n\n";
+
+echo __("Kind regards,", 'woocommerce') . "\n\n";
+echo __("Darling Olives,", 'woocommerce') . "\n\n";
 
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );

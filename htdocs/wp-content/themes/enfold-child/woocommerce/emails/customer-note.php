@@ -15,7 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
-<p><?php _e( "Hello, a note has just been added to your order:", 'woocommerce' ); ?></p>
+<p><?php _e( "Hi there,", 'woocommerce' ); ?></p>
+
+<p><?php _e( "A note has just been added to your order from Darling Olives:", 'woocommerce' ); ?></p>
 
 <blockquote><?php echo wpautop( wptexturize( $customer_note ) ) ?></blockquote>
 
@@ -57,5 +59,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text ); ?>
 
 <?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text ); ?>
+
+<p>
+	<?php _e( "Kind regards,", 'woocommerce' ); ?><br />
+	<?php _e( "Darling Olives", 'woocommerce' ); ?>
+</p>
 
 <?php do_action( 'woocommerce_email_footer' ); ?>

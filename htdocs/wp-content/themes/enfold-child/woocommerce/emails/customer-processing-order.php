@@ -15,7 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action('woocommerce_email_header', $email_heading); ?>
 
-<p><?php _e( "Your order has been received and is now being processed. Your order details are shown below for your reference:", 'woocommerce' ); ?></p>
+<p><?php _e( "Hi there,", 'woocommerce' ); ?></p>
+
+<p><?php _e( "Thank you for ordering from Darling Olives. We have received your payment and are now processing your order. For easy reference, please find your order details below:", 'woocommerce' ); ?></p>
 
 <?php do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text ); ?>
 
@@ -53,5 +55,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text ); ?>
 
 <?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text ); ?>
+
+<p><?php _e( "Please note: Orders are usually delivered within 5-7 workdays.", 'woocommerce' ); ?></p>
+
+<p>
+	<?php _e( "Kind regards,", 'woocommerce' ); ?><br />
+	<?php _e( "Darling Olives", 'woocommerce' ); ?>
+</p>
 
 <?php do_action( 'woocommerce_email_footer' ); ?>
