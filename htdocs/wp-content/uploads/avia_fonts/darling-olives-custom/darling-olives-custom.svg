@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="darling-olives-custom" horiz-adv-x="1000" >
+<font-face font-family="darling-olives-custom" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="clock" unicode="&#xe800;" d="m464 685q-138 0-236-98t-98-237 98-237 236-97 237 97 98 237-98 237-237 98z m1 112q184 0 315-131t131-316-131-315-315-132-316 132-131 315 131 316 316 131z m151-518l-80-80-109 111q-19 17-19 41l0 223 113 0 0-199z" horiz-adv-x="928" />
+<glyph glyph-name="restaurant" unicode="&#xe801;" d="m50 800c-25 0-50-25-50-50l0-250c0-50 50-50 50-100l0-450c0-25 25-50 50-50l50 0c25 0 50 25 50 50l0 450c0 50 50 50 50 100l0 250c0 25-25 50-50 50-12 0-12-15-12-25l0-200c0-10 0-25-13-25s-12 15-12 25l0 200c0 10 0 25-13 25l-50 0c-12 0-12-15-12-25l0-200c0-10 0-25-13-25s-12 15-12 25l0 200c0 10 0 25-13 25z m500 0c-50 0-143-12-175-75-25-50-25-175-25-225l0-200c0-25 25-50 50-50l0-300c0-25 25-50 50-50l50 0c25 0 50 25 50 50z" horiz-adv-x="550" />
+</font>
+</defs>
+</svg>

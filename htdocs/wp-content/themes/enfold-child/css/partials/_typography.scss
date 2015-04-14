@@ -9,8 +9,17 @@
 	text-transform: uppercase;
 }
 
+%h2 {
+	letter-spacing: 1px;
+	line-height: 25.2999992370605px;
+	font-size: 23px;	
+	display: inline-block;
+	border-bottom: 2px solid;
+}
+
 @mixin font($size, $weight, $color) {
 	font-size: $size !important;
 	font-weight: $weight !important;
 	color: $color !important;
 }
+
