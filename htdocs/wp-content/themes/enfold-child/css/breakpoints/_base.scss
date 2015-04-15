@@ -23,6 +23,7 @@
 	5.1 single-product
 	5.2 cart
 	5.3 checkout
+	5.4 myaccount
 6. FOOTER/WIDGET STYLES
 7. GRID (Experimental)
 	7.1 Image
@@ -308,7 +309,8 @@ div {
 			color: $do-brown;
 		}
 
-		div.img-caption-btn {			
+		div.img-caption-btn {
+			//@extend %uppercase;
 			display: inline-block;
 			margin-top: 11px;
 			padding: 10px 22px;
@@ -459,7 +461,7 @@ body {
 		  padding: 0 10px 10px 10px;
 
 		.button {
-			@extend %uppercase;
+			//@extend %uppercase;
 			@include font(12px, 300, $do-true-black);
 			width: 48.5%;
 
@@ -470,7 +472,7 @@ body {
 
 			&.show_details_button {
 				background: none;
-				border: 1px solid black;
+				border: 1px solid $do-light-grey;
 				float: right;
 				padding: 10px 0;
 			}
@@ -515,6 +517,20 @@ body {
 /* -=-=-=-=-=-= 5.1 single-product =-=-=-=-=-=- */
 
 #top {
+	div.woocommerce-error,
+	div.woocommerce-message,
+	.woocommerce-info {
+		@extend %noradius;
+	}
+
+	#reviews {
+		h2 {
+			@extend %cinzel-normal;
+			@extend %h2;
+			font-size: 16px !important;
+		}
+	}
+
 	.variations_form {
 		padding: 0;
 	}
@@ -716,6 +732,7 @@ h3#order_review_heading {
 }
 
 
+
 /**********************************************
 
 		   6. FOOTER/WIDGET STYLES
@@ -742,6 +759,16 @@ h3#order_review_heading {
 	}
 }
 
+div {
+	ul.product_list_widget {
+		li {
+			/* @extend %noborder;
+			border-bottom-style: dotted;
+  			border-bottom-width: 1px; */
+		}
+	}
+}
+
 
 .widget_nav_menu {
 	ul:first-child>.current-menu-item, 
@@ -749,6 +776,10 @@ h3#order_review_heading {
 	ul:first-child>.current-menu-ancestor {
 		@extend %noshadow;
 	}
+}
+
+.news-thumb {
+	display: none;
 }
 
 /**********************************************
