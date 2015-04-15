@@ -11,6 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+?>
+
+<h2 class="woo-heading">Checkout</h2>
+
+<?php
+
 if ( $order ) : ?>
 
 	<?php if ( $order->has_status( 'failed' ) ) : ?>

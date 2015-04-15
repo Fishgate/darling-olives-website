@@ -15,9 +15,9 @@ wc_print_notices();
 
 do_action( 'woocommerce_before_cart' ); ?>
 
-<form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
-
 <h2 class="woo-heading">Shopping Cart</h2>
+
+<form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
 <p>Please note if changes are made to the quantities or products in the cart, save the changes by clicking the 'Update Cart' button before proceeding to the next step to complete your order.</p>
 

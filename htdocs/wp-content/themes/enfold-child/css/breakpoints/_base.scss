@@ -22,6 +22,7 @@
 5. WOOCOMMERCE TEMPALTE STYLING
 	5.1 single-product
 	5.2 cart
+	5.3 checkout
 6. FOOTER/WIDGET STYLES
 7. GRID (Experimental)
 	7.1 Image
@@ -357,14 +358,26 @@ div {
 
 /* -=-=-=-=-=-= 3.3 Special Heading =-=-=-=-=-=- */
 
+h1, h2, h3, h4, h5, h6, 
+#top .title_container .main-title, 
+tr.pricing-row td, 
+#top .portfolio-title, 
+.callout .content-area, 
+.avia-big-box .avia-innerbox, 
+.av-special-font, 
+.av-current-sort-title {
+	@extend %cinzel-normal;
+	border-color: $do-dark-brown !important;
+}
+
 .av-special-heading {
 	h1, h2, h3, h4, h5, h6 {
-		@extend %cinzel-normal;
+		//@extend %cinzel-normal; do i really need these here if they are in the above rule?
 	}
 
 	.av-subheading.av-subheading_above,
 	.av-subheading.av-subheading_below {
-		@extend %cinzel-normal;	
+		//@extend %cinzel-normal;	
 	}
 }
 
@@ -633,6 +646,75 @@ body {
 	}
 }
 
+/* -=-=-=-=-=-= 5.3 checkout =-=-=-=-=-=- */
+
+#top {
+	#main {
+		.order_details,
+		.shop_table.order_details {
+			@extend %noborder;
+			padding: 0;
+		}
+	}
+
+	#payment {
+		@extend %noradius;
+		@extend %noborder;
+
+		div.form-row {
+			padding: 20px 0 0 0;
+		}
+
+		ul.payment_methods {
+			padding: 0;
+			overflow: visible;
+		}
+	}
+}
+
+.woocommerce-page {
+	.button {
+		@extend %noradius;
+	}
+}
+
+.col2-set {
+	.col-1,
+	.col-2 {
+		h3 {
+			padding: 0;
+			@extend %h2;
+		}
+	}
+}
+
+#ship-to-different-address {
+	@extend %noborder;
+}
+
+h3#order_review_heading {
+	@extend %h2;
+}
+
+.woocommerce {
+	h2 {
+		@extend %h2;
+	}
+
+	h3 {
+		font-size: 16px;
+	}
+}
+
+/* -=-=-=-=-=-= 5.4 myaccount =-=-=-=-=-=- */
+
+#top {
+	form.login,
+	form.register {
+		@extend %noradius;
+	}
+}
+
 
 /**********************************************
 
@@ -660,6 +742,14 @@ body {
 	}
 }
 
+
+.widget_nav_menu {
+	ul:first-child>.current-menu-item, 
+	ul:first-child>.current_page_item, 
+	ul:first-child>.current-menu-ancestor {
+		@extend %noshadow;
+	}
+}
 
 /**********************************************
 
@@ -691,16 +781,13 @@ Olives website
 	@extend %hide;
 }
 
-h1, h2, h3, h4, h5, h6, 
-#top .title_container .main-title, 
-tr.pricing-row td, 
-#top .portfolio-title, 
-.callout .content-area, 
-.avia-big-box .avia-innerbox, 
-.av-special-font, 
-.av-current-sort-title {
-	@extend %cinzel-normal;
-	// same as special headings on home page
+
+
+
+
+
+
+
+.main_color, .main_color div, .main_color header, .main_color main, .main_color aside, .main_color footer, .main_color article, .main_color nav, .main_color section, .main_color span, .main_color applet, .main_color object, .main_color iframe, .main_color h1, .main_color h2, .main_color h3, .main_color h4, .main_color h5, .main_color h6, .main_color p, .main_color blockquote, .main_color pre, .main_color a, .main_color abbr, .main_color acronym, .main_color address, .main_color big, .main_color cite, .main_color code, .main_color del, .main_color dfn, .main_color em, .main_color img, .main_color ins, .main_color kbd, .main_color q, .main_color s, .main_color samp, .main_color small, .main_color strike, .main_color strong, .main_color sub, .main_color sup, .main_color tt, .main_color var, .main_color b, .main_color u, .main_color i, .main_color center, .main_color dl, .main_color dt, .main_color dd, .main_color ol, .main_color ul, .main_color li, .main_color fieldset, .main_color form, .main_color label, .main_color legend, .main_color table, .main_color caption, .main_color tbody, .main_color tfoot, .main_color thead, .main_color tr, .main_color th, .main_color td, .main_color article, .main_color aside, .main_color canvas, .main_color details, .main_color embed, .main_color figure, .main_color fieldset, .main_color figcaption, .main_color footer, .main_color header, .main_color hgroup, .main_color menu, .main_color nav, .main_color output, .main_color ruby, .main_color section, .main_color summary, .main_color time, .main_color mark, .main_color audio, .main_color video, #top .main_color .pullquote_boxed, .responsive #top .main_color .avia-testimonial, .responsive #top.avia-blank #main .main_color.container_wrap:first-child, #top .main_color.fullsize .template-blog .post_delimiter, .main_color .related_posts.av-related-style-full a {
+	//border-color: #ddd !important;
 }
-
-
